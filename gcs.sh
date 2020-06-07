@@ -14,7 +14,11 @@ do
 	echo -e "Enter your choice \c"
 	read option
 	case "$option" in
-		volunteer) curl -sS https://raw.githubusercontent.com/Git-Commit-Show/volunteers/master/index.md | mdless;;
+		v | volunteer) rm parth.md parth.html;
+			curl -sS -O https://raw.githubusercontent.com/Git-Commit-Show/volunteers/master/2020/parth.md;
+			awkdown parth.md > parth.html;
+			html2text parth.html;
+			 ;;
 		speaker) pwd; cal;;
 		q) exit;;
 	esac
