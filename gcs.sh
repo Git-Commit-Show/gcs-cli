@@ -14,7 +14,15 @@ do
 	echo -e "Enter your choice \c"
 	read option
 	case "$option" in
-		v | volunteer) rm parth.md parth.html;
+		v | volunteer) echo "Listing Volunteers.";
+			echo "Lists everything.......";
+			echo -e "Enter your choice \c";
+			read val
+			case "$val" in 
+				1) echo "1";;
+				2) echo "2";;
+			esac
+			rm parth.md parth.html;
 			curl -sS -O https://raw.githubusercontent.com/Git-Commit-Show/volunteers/master/2020/parth.md;
 			awkdown parth.md > parth.html;
 			html2text parth.html;
