@@ -5,6 +5,5 @@ if [ "$username"="${array[3]}" ];
 then
 echo " The repo is cloned from the forked repo";
 else
-echo " The Repo is cloned from ${url}"
-fi
-
+echo " The Repo is cloned from ${url} fork the Repo and set origin as your Rep"
+fi 
