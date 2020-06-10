@@ -106,34 +106,56 @@ do
 		do
 			 clear
 		       	 echo "Listing Speakers.";
-			 echo " 1 SCOTT HANSELMANN";
-			 echo " 2 SARTHAK VATS";
-			 echo " 3 ANUPAM VARGHESE";
-			 echo " 4 PHIL STURGEON";
-			 echo " 5 MUHAMMAD AHSAN AYAZ";
-			 echo " 6 ERIC NORMAND";
-			 echo " 7 ROGER DANNENBERRG";
-			 echo " 8 SANDEEP GIRI";
-			 echo " 9 NILESH TRIVEDI";
-			 echo " Type b to go back";
-			 echo -e "Enter your choice \c";
-			 read val
-	        	 case "$val" in
-                                 1 | SCOTT) echo " Details About SCOTT HANSELMANN";;
-				 2 | SARTHAK) echo " Details About SARTHAK VATS";;
-				 3 | ANUPAM) echo " Details About ANUPAM VARGHESE";;
-				 4 | PHIL) echo " Details About PHIL STURGEON";;
-				 5 | MUHAMMAD) echo " Details About MUHAMMAD AHSAN AYAZ";;
-				 6 | ERIC) echo " Details About ERIC NORMAND";;
-				 7 | ROGER) echo " Details About ROGER DANNENBERRG";;
-				 8 | SANDEEP) echo " Details About SANDEEP GIRI";;
-				 9 | NILESH) echo " Details About NILESH TRIVEDI";;				 
-				 b) break;;
-			 esac
-	               echo -e "Enter return to continue \c"
-                       read input 		       
-		 done
-		 ;;
+			getData speakers
+		        input="final.txt"
+			count=1
+			while IFS= read -r line
+			do
+				if [ ${#line} \> 0 ]
+			       	then
+		       	        line=${line%???}	
+				echo "$count.  $line"  
+				count=$((count+1))
+				fi
+		       	done < "$input"
+			echo "Type b to go back";
+			echo -e "Enter your choice \c";
+			read val
+			case "$val" in 
+			b ) break ;;
+			* )
+			if [ ${#val} = 1 ]
+			then 
+				count=1
+				val=$((val+1))
+				vname=0
+				while IFS= read -r line
+		                do
+				if [ $count = $val ]
+				then		
+					vname=$line
+                                        break					
+				fi
+				count=$((count+1))
+               			done < "$input"
+				echo $vname
+                                getIndiData $vname
+			else
+				new='$val.md'
+				echo $new
+				getIndiData $new
+			fi
+			rm file.html
+		        rm imdt.txt
+		        rm imdt1.txt
+		        rm html.txt	
+			;;
+
+	esac
+		        echo -e "Enter return to continue \c"
+		        read input
+		done
+			 ;;
                 stream |s) echo "STreams a videos";	
 	                 ;;
                 schedule | sc) echo "Prints the Schedule";
