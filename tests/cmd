@@ -1,0 +1,3 @@
+awk -f JSON.awk simple.json
+
+ echo -e "\e[1mMy Bold. \t Text\e[1m\n \vhi"

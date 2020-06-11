@@ -17,5 +17,6 @@ pwd
 
 echo "Making file executable..."
 chmod +x ./gcs.sh;
+chmod +x ./jq-linux64;
 sleep 2;
 echo "Files setup completely."
