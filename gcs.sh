@@ -87,8 +87,7 @@ do
 				echo $vname
                                 getIndiData $vname
 			else
-				new='$val.md'
-				echo $new
+				new=$val.md
 				getIndiData $new
 			fi
 			rm file.html
@@ -141,8 +140,7 @@ do
 				echo $vname
                                 getIndiData $vname
 			else
-				new='$val.md'
-				echo $new
+				new=$val.md
 				getIndiData $new
 			fi
 			rm file.html
@@ -156,9 +154,30 @@ do
 		        read input
 		done
 			 ;;
-                stream |s) echo "STreams a videos";	
+	        glimpse | g) echo 'Git Commit Show is the leading online tech conference where <b>senior engineers</b>, researchers,scientists and professors meet while <b>being at home</b> <br />A 2-day long, online meetup where carefully curated senior developers and researchers share their knowledge and breakthrough project.<br />Unlike other online conferences, it is fully <b>interactive</b> with opportunities to connect with speakers and fellow attendees <b>face o face</b>.<br />Git Commit Show <b>started in 2019</b> to provide a better alternative to physical conferences by being open, free and inclusive of people who come from remote locations and modest backgrounds.' > display.txt
+			html2text display.txt
+
+		;;
+                stream |s)while true
+		do
+			   echo "Stream any of these master classes";
+			   echo "1. Master Class 1"
+			   echo "2. Master Class 2"
+			   echo "3. Play LiveStream"
+			   echo " Type b for Break"
+			   echo "Enter your Choice"
+		           read val
+		          case $val in 
+	                  1 | masterclass1 )streamlink 'Link o mastr class 1' ;;
+			  2 | masterclass2 )streamlink 'Link o mastr class 2' ;;
+			  3 | livestream )streamlink 'Link o mastr class 1' ;;
+			  b) break;;
+	       esac
+                        echo -e "Enter return to continue \c"
+                        read input
+		done
 	                 ;;
-                schedule | sc) echo "Prints the Schedule";
+                schedule | sc) html2text new.txt
 	                 ;;		 
 		q) exit;;
 	esac
