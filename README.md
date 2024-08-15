@@ -1,8 +1,8 @@
 # gcs-cli
 
 
-- [x] Volunteers are listed: API and locally.   
-- [x] Speakers is also the same.   
+- [x] Volunteers are listed: API and locally
+- [x] Speakers is also the same
 
 ### Streaming
 
@@ -10,7 +10,7 @@
 - [x] Live stream twitch videos.   
 
 1. [StreamLink](streamlink.github.io)   
-2. VLC/mpv installed.   
+2. VLC/mpv installed
 
 
 ##TASKS
@@ -29,6 +29,6 @@
 
 - [ ] Submit showcase
 
-> Take input.   
-> Store in md   
+> Take input
+> Store in md
 > curl --upload-file {file1, file2} https://something.com
